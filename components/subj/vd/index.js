@@ -24,7 +24,7 @@ export default function Vd() {
           {data && (
             <>
               <iframe
-                src={`http://localhost:3000/embed/${data.vd}`}
+                src={`https://${window.location.hostname}/embed/${data.vd}`}
                 frameBorder="0"
                 allowFullScreen
               />
