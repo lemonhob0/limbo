@@ -1,0 +1,257 @@
+@import "../vars.scss";
+.prac {
+  padding: 2em 0;
+  & > p {
+    direction: rtl;
+    font-size: 1em;
+    font-family: var(--font-ar);
+    padding-right: 1em;
+    color: $white3;
+    padding-bottom: 0.5em;
+  }
+  .pracList {
+    width: 60%;
+    margin: auto;
+    @include mobile {
+      width: 95%;
+    }
+
+    .list,
+    .uLoading {
+      width: 100%;
+      display: flex;
+      white-space: nowrap;
+      overflow-x: auto;
+      padding: 0 1em;
+      height: 5.5em;
+      li {
+        border-radius: $maxRadius;
+      }
+    }
+    .uLoading {
+      li {
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        user-select: none;
+        background: $grey;
+      }
+    }
+    .list {
+      gap: 1.5em;
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $grey;
+        border-radius: 1em;
+      }
+      li {
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        color: $white;
+        font-family: var(--font-en);
+        border-radius: $maxRadius;
+        user-select: none;
+        cursor: pointer;
+        transition: 0.2s;
+        &.selected {
+          box-shadow: 0 0 0 3px $blue;
+          width: 60px;
+          height: 60px;
+          @include desktop {
+            &:hover {
+              background: $black2;
+            }
+          }
+          &.sCorrect {
+            box-shadow: 0 0 0 2px $purple;
+          }
+          &.sInCorrect {
+            box-shadow: 0 0 0 2px $red;
+          }
+        }
+        &.correct {
+          background: $purple;
+          @include desktop {
+            &:hover {
+              background: $purple2;
+            }
+          }
+        }
+        &.incorrect {
+          background: $red;
+          @include desktop {
+            &:hover {
+              background: $red2;
+            }
+          }
+        }
+        &.notyet {
+          box-shadow: 0 0 0 1px $grey;
+          @include desktop {
+            &:hover {
+              background: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .interface {
+    width: 70%;
+    margin-inline: auto;
+    margin-top: 1em;
+    min-height: 70vh;
+    background: $black;
+    position: relative;
+    padding-inline: 5%;
+    padding-block: 1em;
+    border-radius: $minRadius;
+    @include desktop {
+      box-shadow: 5px 5px 5px 1px $black;
+    }
+    @include mobile {
+      width: 100%;
+      padding-inline: 2%;
+    }
+    .text {
+      color: $white;
+      text-align: center;
+      padding: 1em 0;
+      p {
+        font-size: 1rem;
+        font-family: var(--font-ar);
+      }
+    }
+    .pracImg {
+      width: 100%;
+      margin: 1em auto;
+      text-align: center;
+      background: $grey;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: $minRadius;
+    }
+    .answer {
+      padding: 1em;
+      .yesNo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        button {
+          box-shadow: inset 0 0 0 1px $grey;
+          background: none;
+          cursor: pointer;
+          padding: 1em 1.5em;
+          font-size: 1rem;
+          color: $white3;
+          border-radius: $minRadius;
+          transition: 0.2s;
+          &.selected {
+            box-shadow: 0 0 0 3px $blue;
+          }
+          &.correct {
+            box-shadow: 0 0 0 3px $purple;
+            @include desktop {
+              &:hover {
+                box-shadow: 0 0 0 3px $purple2;
+              }
+            }
+          }
+          &.incorrect {
+            box-shadow: 0 0 0 3px $red;
+            &:hover {
+              box-shadow: 0 0 0 3px $red2;
+            }
+          }
+          @include desktop {
+            &:hover {
+              background: $black2;
+            }
+          }
+        }
+        button:nth-child(1) {
+          margin-right: auto;
+          margin-left: 1em;
+        }
+        button:nth-child(2) {
+          margin-left: auto;
+          margin-right: 1em;
+        }
+      }
+    }
+    .sendAnswers {
+      text-align: right;
+      @include mobile {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        color: $red;
+        padding-bottom: 1em;
+        font-family: var(--font-ar);
+
+        letter-spacing: 1px;
+      }
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      button {
+        margin-top: 1em;
+        padding: 1em 1.5em;
+        font-family: var(--font-ar);
+        border-radius: $minRadius;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        direction: rtl;
+        transition: 0.2s;
+        &:nth-child(2) {
+          background: $blue;
+          margin-left: auto;
+          color: $white;
+          @include desktop {
+            &:hover {
+              background: $blue2;
+            }
+          }
+          &.correct {
+            background: $purple;
+            color: $white;
+            &:hover {
+              background: $purple2;
+            }
+          }
+          &.incorrect {
+            background: $red;
+            color: $white;
+            &:hover {
+              background: $red2;
+            }
+          }
+        }
+        &:nth-child(1) {
+          background: none;
+          margin-right: auto;
+          &.noAnswerYet {
+            color: $white3;
+            cursor: not-allowed;
+          }
+          &.showAnswer {
+            color: $white;
+            @include desktop {
+              &:hover {
+                background: $grey3;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

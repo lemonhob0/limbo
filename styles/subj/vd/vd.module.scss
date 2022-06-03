@@ -1,0 +1,48 @@
+@import "../../vars.scss";
+.vd {
+  position: relative;
+  background: #000000;
+
+  @include desktop {
+    border-block: 1px solid #000000;
+  }
+  & > div {
+    background: #000000;
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    @include mobile {
+      padding-bottom: 56.25%;
+      height: 0;
+      width: 100%;
+    }
+    & > iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.player {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: #000000;
+  & > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    & > div {
+      display: none;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+}

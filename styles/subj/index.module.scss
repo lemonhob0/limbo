@@ -1,0 +1,8 @@
+@import "../vars.scss";
+.main {
+  width: 90%;
+  margin: auto;
+  @include mobile {
+    width: 100%;
+  }
+}

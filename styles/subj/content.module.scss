@@ -1,0 +1,149 @@
+@import "../vars.scss";
+.content {
+  @include mobile {
+    width: 99%;
+    margin: 0 auto;
+  }
+  h1 {
+    color: $white;
+    direction: rtl;
+    text-align: left;
+    padding-block: 1em;
+    padding-inline: 1em;
+    font-weight: 100;
+    @include mobile {
+      text-align: center;
+      padding-top: 1.5em;
+      padding-bottom: 1em;
+    }
+  }
+  .info {
+    padding-inline: 1em;
+    direction: rtl;
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    @include mobile {
+      padding-inline: 0.7em;
+      padding-bottom: 1.5em;
+      display: flex;
+      .prv {
+        margin-right: auto;
+        margin-left: 0;
+        background: $black;
+      }
+    }
+    button {
+      margin-left: 2em;
+      padding: 0.5em 1.5em;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      transition: 0.2s;
+      border-radius: $minRadius;
+      span {
+        font-size: 0.7rem;
+      }
+      &.next {
+        color: $white;
+        background: $blue;
+        span {
+          padding-left: 0.5em;
+        }
+        @include desktop {
+          &:hover {
+            background: $blue2;
+          }
+        }
+      }
+      &.prv {
+        color: $white2;
+        background: none;
+        span {
+          padding-right: 0.5em;
+        }
+        @include desktop {
+          &:hover {
+            background: $black2;
+          }
+        }
+      }
+    }
+  }
+  .list {
+    background: $black2;
+    padding: 1em;
+    border-radius: $minRadius;
+    @include mobile {
+      border-radius: 0;
+    }
+    & > p {
+      direction: rtl;
+      font-family: var(--font-ar);
+      color: $white3;
+      font-size: 1rem;
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @include mobile {
+        width: 97%;
+        margin: 0 auto;
+        white-space: nowrap;
+        flex-wrap: unset;
+        overflow-x: auto;
+        padding-block: 0.5em;
+        padding-inline: 0.5em;
+        &::-webkit-scrollbar {
+          height: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: $grey2;
+          border-radius: 1em;
+        }
+      }
+      li {
+        direction: rtl;
+        padding: 0.7em 0.5em;
+        @include mobile {
+          margin-right: 0.5em;
+        }
+        margin-right: 1em;
+        margin-top: 1em;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: $minRadius;
+        user-select: none;
+        display: flex;
+        svg {
+          margin-right: 0.5em;
+          position: relative;
+          top: 3px;
+        }
+        &.done {
+          color: $white3;
+          box-shadow: inset 0 0 0 2px $grey3;
+        }
+        &.select {
+          background: $blue;
+          color: $white;
+          @include desktop {
+            &:hover {
+              box-shadow: inset 0 0 0 2px $blue2;
+            }
+          }
+        }
+        &.yet {
+          color: $white;
+          box-shadow: 0 0 0 2px $white2;
+        }
+        @include desktop {
+          &:hover {
+            background: $black;
+          }
+        }
+      }
+    }
+  }
+}

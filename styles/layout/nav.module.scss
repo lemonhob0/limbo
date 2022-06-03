@@ -1,0 +1,105 @@
+@import "../vars.scss";
+.nav {
+  width: 100%;
+  padding-top: 0.2em;
+  @include mobile {
+    width: 97%;
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 0 0.5em;
+    background: $black2;
+    border-radius: $maxRadius;
+  }
+  & > div {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.1fr auto;
+    @include mobile {
+      width: 100%;
+      display: flex;
+    }
+    & > div {
+      margin: auto 0;
+      display: flex;
+      cursor: pointer;
+      height: 100%;
+      padding-inline: 1em;
+      transition: 0.2s;
+      @include desktop {
+        &:hover {
+          transform: rotate(50deg);
+          svg {
+            color: $white;
+          }
+        }
+      }
+      svg {
+        margin: auto 0;
+        font-size: 3.5rem;
+        color: $white2;
+        @include mobile {
+          font-size: 2rem;
+        }
+      }
+    }
+    ul {
+      width: 100%;
+      direction: rtl;
+      margin: auto;
+      @include mobile {
+        display: flex;
+        justify-content: center;
+      }
+      li {
+        display: inline-block;
+        color: $white;
+        padding: 1em 1.5em;
+        position: relative;
+        cursor: pointer;
+        transition: 0.2s;
+        @include mobile {
+          display: block;
+          margin-left: auto;
+          padding-block: 0.8em;
+        }
+        svg {
+          font-size: 1.4rem;
+          @include mobile {
+            font-size: 1.2rem;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 3px;
+          background: $blue2;
+          transition: 0.2s;
+          border-radius: 5px;
+        }
+        @include desktop {
+          border-radius: $minRadius $minRadius 0 0;
+          &:hover {
+            background: $black;
+          }
+          &:hover::before {
+            width: 100%;
+          }
+          &:nth-child(2):hover {
+            color: $blue2;
+          }
+        }
+        &:nth-child(2) {
+          color: $blue;
+        }
+      }
+    }
+  }
+}

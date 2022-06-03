@@ -1,0 +1,222 @@
+@import "../../vars.scss";
+.desktop_controls {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  .wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  &.fadeIn {
+    .controls {
+      animation: 0.2s fadeUp forwards;
+      @keyframes fadeUp {
+        from {
+          bottom: -10em;
+        }
+        to {
+          bottom: 0;
+        }
+      }
+    }
+  }
+  &.fadeOut {
+    cursor: none;
+    .controls {
+      animation: 0.2s fadeDown forwards;
+      @keyframes fadeDown {
+        from {
+          bottom: 0em;
+        }
+        to {
+          bottom: -10em;
+        }
+      }
+    }
+  }
+  .button,
+  button {
+    padding-top: 0.5em;
+    background: none;
+    color: $white;
+    font-size: 1.7rem;
+    &.fullscreen {
+      padding-top: 0.6em;
+      font-size: 1.5rem;
+    }
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: $purple2;
+    }
+  }
+  .controls {
+    position: absolute;
+    bottom: -10em;
+    width: 97%;
+    left: 50%;
+    transform: translateX(-50%);
+    & > div {
+      position: relative;
+      .progress {
+        width: 100%;
+        height: 3px;
+        background: $grey3;
+        position: absolute;
+        top: 0;
+        transition: 0.1s;
+        user-select: none;
+        cursor: pointer;
+        div {
+          height: 100%;
+        }
+        &:hover,
+        &.is_held {
+          top: -2px;
+          height: 5px;
+          .read {
+            background: $purple2;
+            span {
+              opacity: 1;
+            }
+          }
+        }
+        & > div {
+          position: relative;
+          width: 100%;
+          div {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .listen {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+            &:hover span,
+            .is_held {
+              transition: 0.2s opacity;
+              opacity: 1;
+            }
+            span {
+              opacity: 0;
+              position: absolute;
+              top: -3em;
+              color: $white;
+              font-family: var(--font-en);
+              font-size: 0.8rem;
+              letter-spacing: 1px;
+            }
+          }
+          .read {
+            background: $purple;
+            z-index: 1;
+            span {
+              position: absolute;
+              right: -5px;
+              width: 15px;
+              height: 15px;
+              background: $purple;
+              top: -5px;
+              border-radius: 1em;
+              opacity: 0;
+              transition: 0.1s opacity;
+            }
+          }
+          .load {
+            background: $white;
+          }
+        }
+      }
+      .btns {
+        padding-inline: 0.5em;
+        display: flex;
+        flex-wrap: wrap;
+        .left_controls {
+          display: flex;
+          flex-wrap: wrap;
+          .volume {
+            margin-right: 1em;
+            margin-left: 1em;
+            height: 100%;
+            user-select: none;
+            position: relative;
+            display: flex;
+            button {
+              padding-right: 0.2em;
+            }
+            &:hover,
+            &.fadeIn {
+              .listner {
+                display: block;
+              }
+              .vol_line {
+                width: 7em;
+                & > div {
+                  .vol {
+                    &::after {
+                      opacity: 1;
+                      border-radius: 1em;
+                    }
+                  }
+                }
+              }
+            }
+            .listner {
+              position: absolute;
+              top: 3px;
+              right: 0;
+              width: 7em;
+              display: none;
+              height: calc(100% - 3px);
+              cursor: pointer;
+              z-index: 2;
+            }
+            .vol_line {
+              width: 0;
+              margin-top: 4px;
+              display: grid;
+              place-items: center;
+              transition: 0.2s;
+              & > div {
+                width: 90%;
+                height: 3px;
+                position: relative;
+                background: $grey;
+                .vol {
+                  position: absolute;
+                  height: 100%;
+                  background: $white;
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    top: -5.5px;
+                    right: -8px;
+                    width: 14px;
+                    height: 14px;
+                    opacity: 0;
+                    background: $white;
+                  }
+                }
+              }
+            }
+          }
+          .time_display {
+            color: $white;
+            margin-block: auto;
+            p {
+              text-align: center;
+              padding-top: 3px;
+              letter-spacing: 1px;
+            }
+          }
+        }
+        .right_controls {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

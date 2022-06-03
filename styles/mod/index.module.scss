@@ -1,0 +1,89 @@
+@import "../vars.scss";
+.main {
+  width: 90%;
+  margin: auto;
+  & > article {
+    display: flex;
+    padding-top: 2em;
+    padding-inline: 0.5em;
+
+    svg {
+      font-size: 2.2rem;
+      @include mobile {
+        font-size: 3rem;
+      }
+    }
+    h1 {
+      color: $white;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      padding: 0 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+    gap: 1em;
+    padding-top: 2em;
+    @include mobile {
+      padding-top: 1em;
+    }
+    li {
+      display: grid;
+      grid-template-rows: 1fr 1.3fr 0.7fr;
+      height: 13em;
+      padding: 1em 0.5em;
+      place-items: center;
+      cursor: pointer;
+      user-select: none;
+      svg {
+        transition: 0.4s;
+        color: $grey;
+        transform: rotate(-45deg);
+        font-size: 2.5rem;
+      }
+      h1 {
+        font-family: var(--font-ar);
+        color: $white;
+        text-align: center;
+        font-weight: 100;
+        font-size: 1.1rem;
+      }
+      @include mobile {
+        border-radius: 0.5em;
+        height: auto;
+        padding-block: 1.5em;
+        grid-template-columns: 2.5rem auto;
+        grid-template-rows: 1fr 1fr;
+        box-shadow: 0 0 10px 1px $black;
+        & > div {
+          grid-column: span 2;
+          margin-top: 0.5em;
+        }
+        svg {
+          font-size: 2rem;
+        }
+        h1 {
+          margin-right: 2em;
+        }
+      }
+      &.done {
+        svg {
+          color: $white;
+          transform: none;
+        }
+      }
+      @include desktop {
+        &:hover {
+          svg {
+            transform: translateY(-10px);
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

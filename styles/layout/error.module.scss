@@ -1,0 +1,18 @@
+@import '../vars.scss';
+.error {
+  width: 97%;
+  margin: auto;
+  text-align: center;
+  h1 {
+    color: $white;
+    font-size: 2.5rem;
+    padding: 1em 0;
+    span {
+      color: $blue;
+    }
+  }
+  p {
+    color: $white3;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,169 @@
+@import "../../vars.scss";
+.mobile_controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+  .Wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    &.fade_in {
+      .touchListener {
+        animation: 0.15s touchListenerFadeIn forwards;
+        @keyframes touchListenerFadeIn {
+          from {
+            opacity: 0;
+            z-index: 2;
+          }
+          to {
+            opacity: 1;
+            z-index: 1;
+          }
+        }
+      }
+      .show {
+        animation: 0.15s playPauseFadeIn forwards;
+        @keyframes playPauseFadeIn {
+          from {
+            opacity: 0;
+            z-index: 1;
+          }
+          to {
+            opacity: 1;
+            z-index: 2;
+          }
+        }
+      }
+    }
+    &.fade_out {
+      .touchListener {
+        animation: 0.2s touchListenerFadeOut forwards;
+        @keyframes touchListenerFadeOut {
+          from {
+            opacity: 1;
+            z-index: 1;
+          }
+          to {
+            opacity: 0;
+            z-index: 2;
+          }
+        }
+      }
+      .hide {
+        animation: 0.2s playPauseFadeOut forwards;
+        @keyframes playPauseFadeOut {
+          from {
+            opacity: 1;
+            z-index: 2;
+          }
+          to {
+            opacity: 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
+    .touchListener {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #00000062;
+    }
+    .playPause {
+      color: $white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+    }
+    .contols {
+      position: absolute;
+      width: 95%;
+      bottom: 5%;
+      left: 50%;
+      transform: translate(-50%, 5%);
+      display: grid;
+      grid-template-rows: auto 1em;
+      &.isHeld {
+        opacity: 1;
+        z-index: 2;
+
+        .relatedControls {
+          transition: 0.2s;
+          opacity: 0;
+        }
+      }
+      button {
+        background: none;
+      }
+      .relatedControls {
+        margin: auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        p {
+          padding-top: 1em;
+          color: $white2;
+          font-family: var(--font-en);
+          padding-left: 0.5em;
+        }
+        button {
+          margin-left: auto;
+          padding: 1em 1em 0.5em 1em;
+        }
+        svg {
+          color: $white;
+        }
+      }
+      .progress {
+        position: relative;
+        margin: auto 0;
+        background: $grey3;
+        .listener {
+          position: absolute;
+          top: -9px;
+          left: 0;
+          width: 100%;
+          height: 20px;
+          z-index: 3;
+        }
+        .load {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: $white;
+        }
+        .read {
+          position: relative;
+          height: 2px;
+          background: $purple;
+          z-index: 2;
+          & > span {
+            position: absolute;
+            right: -5px;
+            top: -6px;
+            border-radius: 1em;
+            width: 13px;
+            height: 13px;
+            background: $purple;
+            span {
+              position: absolute;
+              top: -30px;
+              color: $white;
+              font-size: 0.7rem;
+              letter-spacing: 1px;
+              font-family: var(--font-en);
+            }
+          }
+        }
+      }
+    }
+  }
+}

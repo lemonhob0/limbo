@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Noto+Naskh+Arabic&display=swap");
+@import "./vars.scss";
+:root {
+  --font-ar: "Noto Naskh Arabic", serif;
+  --font-en: "Kanit", sans-serif;
+  --aspect-ratio: 3 / 4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: $wash;
+  @media only screen and (min-width: 986px) {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #303030;
+      border-radius: 1em;
+    }
+  }
+}
+ul {
+  list-style: none;
+}
+h1 {
+  font-size: 1.3rem;
+}
+p {
+  font-size: 0.8rem;
+}
+.ar {
+  letter-spacing: 1px;
+  font-family: var(--font-ar);
+}
+.en {
+  font-family: var(--font-en);
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+}
+
+@import "./vars.scss";
+main {
+  @include mobile {
+    padding-bottom: 3em;
+  }
+}
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}

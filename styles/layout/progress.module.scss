@@ -1,0 +1,42 @@
+@import "../vars.scss";
+.container {
+  width: 100%;
+  background: $black2;
+  position: relative;
+  &,
+  div {
+    border-radius: $maxRadius;
+  }
+  overflow: hidden;
+  @include mobile {
+    height: 100%;
+    margin-block: auto;
+    padding-block: 0.2em;
+  }
+  p {
+    color: $white;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: var(--font-en);
+  }
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    &.red {
+      background: $red;
+    }
+    &.blue {
+      background: $blue;
+    }
+    &.purple {
+      background: $purple;
+    }
+  }
+}
