@@ -5,7 +5,7 @@ import { useEffect, useState, createContext } from "react";
 import { useRouter } from "next/router";
 import NextNProgress from "nextjs-progressbar";
 const client = new ApolloClient({
-  uri: "http://localhost:4000/",
+  uri: "https://mera7.herokuapp.com/",
   cache: new InMemoryCache()
 });
 
